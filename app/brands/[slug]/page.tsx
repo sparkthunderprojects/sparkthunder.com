@@ -47,7 +47,7 @@ export default function BrandPage({ params }: Props) {
                 alt={brand.name}
                 width={brand.logo.width}
                 height={brand.logo.height}
-                className={`h-auto w-[min(86vw,640px)] ${brand.logoBlend ? "[mask-image:radial-gradient(ellipse_at_center,#000_58%,transparent_78%)]" : ""}`}
+                className={`h-auto max-h-[38vh] w-auto max-w-[min(86vw,640px)] ${brand.logoBlend ? "[mask-image:radial-gradient(ellipse_at_center,#000_58%,transparent_78%)]" : ""}`}
               />
             ) : (
               brand.name
