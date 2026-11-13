@@ -62,10 +62,11 @@ export const BRANDS: Brand[] = [
     category: "Tabletop Games",
     tagline: "Roll for your story.",
     summary:
-      "The label behind Sparkthunder's tabletop RPGs — including Knightverge Legacy, set in the Knightverge universe.",
+      "The label behind Sparkthunder's tabletop RPGs and the virtual tabletop to play them on, including Knightverge Legacy, set in the Knightverge universe.",
     description: [
       "Roll Combat is the brand through which Sparkthunder releases its role-playing games. Its flagship, Knightverge Legacy, lets players step into the Knightverge universe as a Persona — choosing an Origin and an Archetype and building a legend over a long-running campaign.",
       "Every system is designed around a world that already exists, so tables start with story, stakes and history instead of a blank page.",
+      "Roll Combat VTT is the virtual tabletop for Roll Combat games: interactive battle maps with fog of war and vision, tokens, initiative and combat tracking, realtime chat and 3D dice, plus automation tools that help Game Masters run a session smoothly.",
     ],
     status: "In development",
     art: "radial-gradient(110% 90% at 80% 10%, #b45309 0%, transparent 55%), radial-gradient(90% 80% at 10% 95%, #be123c 0%, transparent 60%), linear-gradient(160deg,#120805,#1f0d0a)",
@@ -75,29 +76,7 @@ export const BRANDS: Brand[] = [
     highlights: [
       { title: "Knightverge Legacy", text: "A long-form tabletop RPG set in the Knightverge universe." },
       { title: "Personas", text: "Choose an Origin and an Archetype and shape your own legend." },
-      { title: "Powers & Abilities", text: "Distinct systems for innate Powers and trained Abilities." },
-    ],
-  },
-  {
-    slug: "roll-combat-vtt",
-    name: "Roll Combat VTT",
-    category: "Play Tools",
-    tagline: "The table, anywhere.",
-    summary:
-      "A virtual tabletop built for Roll Combat games — maps, tokens, dice and combat in one place.",
-    description: [
-      "Roll Combat VTT is the virtual tabletop that brings Roll Combat games online: interactive battle maps with fog of war and vision, tokens, initiative and combat tracking, realtime chat and 3D dice.",
-      "Game Masters get automation tools to run a session smoothly, and players get character sheets that live alongside the action.",
-    ],
-    status: "In development",
-    art: "radial-gradient(110% 90% at 15% 15%, #0891b2 0%, transparent 55%), radial-gradient(90% 80% at 90% 90%, #4f46e5 0%, transparent 60%), linear-gradient(160deg,#04111a,#08182b)",
-    accent: "#22d3ee",
-    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(34,211,238,0.28), transparent 65%), linear-gradient(160deg,#08182b,#04111a)",
-    tone: "dark",
-    highlights: [
-      { title: "Battle maps", text: "Layered maps, fog of war, vision and measurement tools." },
-      { title: "Dice & chat", text: "Realtime chat with slash-command rolls and 3D physics dice." },
-      { title: "Automation", text: "Visual rules that let Game Masters run sessions faster." },
+      { title: "Roll Combat VTT", text: "A virtual tabletop with battle maps, tokens, dice and combat tools." },
     ],
   },
   {
