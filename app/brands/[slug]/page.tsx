@@ -7,8 +7,10 @@ export function generateStaticParams() {
   return BRANDS.map((b) => ({ slug: b.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/brands/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
+type Props = { params: { slug: string } };
+
+export function generateMetadata({ params }: Props): Metadata {
+  const { slug } = params;
   const brand = getBrand(slug);
   if (!brand) return {};
   return {
@@ -19,8 +21,8 @@ export async function generateMetadata({ params }: PageProps<"/brands/[slug]">):
   };
 }
 
-export default async function BrandPage({ params }: PageProps<"/brands/[slug]">) {
-  const { slug } = await params;
+export default function BrandPage({ params }: Props) {
+  const { slug } = params;
   const brand = getBrand(slug);
   if (!brand) notFound();
 

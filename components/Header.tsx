@@ -30,8 +30,8 @@ export function Header() {
 
         <details className="group relative lg:hidden">
           <summary className="cursor-pointer list-none text-xs uppercase tracking-[0.28em] text-white/80">
-            <span className="group-open:hidden">Menu</span>
-            <span className="hidden group-open:inline">Close</span>
+            <span className="group-[[open]]:hidden">Menu</span>
+            <span className="hidden group-[[open]]:inline">Close</span>
           </summary>
           <nav
             aria-label="Mobile"
