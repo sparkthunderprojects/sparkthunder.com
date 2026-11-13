@@ -7,6 +7,7 @@ import HeaderBrand from "./HeaderBrand";
 const NAV = [
   { href: "/brands", label: "Brands" },
   { href: "/about", label: "About" },
+  { href: "/shop", label: "Shop" },
   { href: "/my-sparkthunder", label: "MySparkthunder" },
 ];
 
