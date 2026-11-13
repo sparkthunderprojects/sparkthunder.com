@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Bolt } from "@/components/Bolt";
+import { MyLogo } from "@/components/MyLogo";
 import { SITE } from "@/lib/brands";
 
 const ACCOUNT_URL = "https://mysparkthunder.com";
@@ -104,7 +105,9 @@ export default function MySparkthunderPage() {
 
         <div className="relative z-[2] mx-auto w-full max-w-[1500px] px-6 pb-16 md:px-12 md:pb-24">
           <p className="eyebrow rise">Your account</p>
-          <h1 className="display rise rise-2 mt-5 text-[clamp(3rem,9vw,8rem)]">MySparkthunder</h1>
+          <h1 aria-label="MySparkthunder" className="rise rise-2 mt-8 pt-4">
+            <MyLogo />
+          </h1>
           <p className="rise rise-3 mt-5 max-w-xl text-xl text-white/75">Your worlds. One identity.</p>
           <div className="rise rise-3 mt-9 flex flex-wrap gap-4">
             <a

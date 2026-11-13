@@ -529,3 +529,74 @@ body {
     display: none;
   }
 }
+
+/* ---------- MySparkthunder logo: the hand-lettered "My" before the wordmark ----------
+   Everything scales from --h, the height of the wordmark. */
+.my-logo {
+  --h: clamp(2.4rem, 8vw, 7.5rem);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-left: calc(var(--h) * 1.75);
+}
+.my-logo-word {
+  display: block;
+  height: var(--h);
+  width: auto;
+  filter: drop-shadow(0 0 18px rgba(125, 211, 252, 0.3));
+}
+.my-logo-my {
+  position: absolute;
+  right: 100%;
+  bottom: calc(var(--h) * -0.18);
+  margin-right: calc(var(--h) * -1.55);
+  width: calc(var(--h) * 1.6);
+  height: calc(var(--h) * 1.29);
+  filter: drop-shadow(0 0 12px hsl(var(--arc) / 0.55));
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+.my-logo-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  -webkit-mask: url(/my-mark.svg) center / contain no-repeat;
+  mask: url(/my-mark.svg) center / contain no-repeat;
+}
+.my-spark {
+  position: absolute;
+  border-radius: 9999px;
+  background: hsl(var(--arc));
+  box-shadow: 0 0 10px 2px hsl(var(--arc) / 0.8);
+  animation: my-twinkle 3.2s ease-in-out infinite;
+}
+.my-spark-a {
+  width: 5px;
+  height: 5px;
+  top: -0.1em;
+  left: 62%;
+}
+.my-spark-b {
+  width: 3px;
+  height: 3px;
+  top: -0.4em;
+  left: 98%;
+  animation-delay: 1.4s;
+}
+@keyframes my-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .my-spark {
+    animation: none;
+  }
+}
