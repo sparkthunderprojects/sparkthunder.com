@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE.url, priority: 1 },
     { url: `${SITE.url}/brands`, priority: 0.9 },
     { url: `${SITE.url}/about`, priority: 0.8 },
+    { url: `${SITE.url}/my-sparkthunder`, priority: 0.8 },
     ...BRANDS.map((b) => ({ url: `${SITE.url}/brands/${b.slug}`, priority: 0.7 })),
   ];
 }

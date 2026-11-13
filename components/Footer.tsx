@@ -36,6 +36,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/my-sparkthunder" className="text-white/80 hover:text-white">
+                MySparkthunder
+              </Link>
+            </li>
+            <li>
               <a href="https://knightverge.com" className="text-white/80 hover:text-white">
                 Knightverge.com
               </a>
