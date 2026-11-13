@@ -34,11 +34,25 @@ export default function BrandPage({ params }: Props) {
   return (
     <>
       <section className="grain relative flex min-h-[80svh] items-end overflow-hidden">
-        <div className="drift absolute inset-0" style={{ backgroundImage: brand.art }} />
+        <div className="absolute inset-0" style={{ backgroundImage: brand.art }} />
+        {brand.banner && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={brand.banner}
+            alt=""
+            aria-hidden="true"
+            width={2000}
+            height={1100}
+            className="drift absolute inset-0 h-full w-full object-cover object-top"
+          />
+        )}
+        {brand.banner && (
+          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-[1] h-3/5 bg-gradient-to-t from-background via-background/85 to-transparent" />
+        )}
         <div className={`absolute inset-0 bg-gradient-to-t from-background ${light ? "via-transparent to-transparent" : "via-black/20 to-black/40"}`} />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black/70 to-transparent" />
-        <div className="relative mx-auto w-full max-w-[1500px] px-6 pb-20 md:px-12 md:pb-28">
-          <p className={`eyebrow rise ${light ? "!text-black/60" : ""}`}>{brand.category}</p>
+        <div className="relative z-[2] mx-auto w-full max-w-[1500px] px-6 pb-20 md:px-12 md:pb-28">
+          <p className={`eyebrow rise ${light ? "!text-black/60" : ""} ${brand.banner ? "!text-white/85 [text-shadow:0_1px_10px_rgba(0,0,0,0.95)]" : ""}`}>{brand.category}</p>
           <h1 className={`display rise rise-2 mt-6 ${ink} ${brand.logo ? "" : "text-[clamp(3.5rem,11vw,10rem)]"}`}>
             {brand.logo ? (
               // eslint-disable-next-line @next/next/no-img-element

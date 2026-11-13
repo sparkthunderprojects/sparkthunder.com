@@ -21,6 +21,8 @@ export type Brand = {
   tone: "dark" | "light";
   /** Set when the logo file has its own opaque light background that should blend into the tile. */
   logoBlend?: boolean;
+  /** Wide key-art banner used as the brand page hero. */
+  banner?: string;
 };
 
 export const SITE = {
@@ -48,6 +50,7 @@ export const BRANDS: Brand[] = [
     art: "radial-gradient(120% 90% at 20% 10%, #1d4ed8 0%, transparent 55%), radial-gradient(90% 80% at 85% 90%, #7c3aed 0%, transparent 60%), linear-gradient(160deg,#050816,#0b1030)",
     accent: "#60a5fa",
     logo: { src: "/brands/logos/knightverge.png", width: 1000, height: 224 },
+    banner: "/brands/banners/knightverge.jpg",
     tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(212,160,23,0.28), transparent 65%), linear-gradient(160deg,#0a0d1f,#05060f)",
     tone: "dark",
     highlights: [
