@@ -600,3 +600,47 @@ body {
     animation: none;
   }
 }
+
+/* ---------- Shop hero banner: two tilted rows of merch drifting in opposite directions ---------- */
+.shop-rows {
+  position: absolute;
+  inset: -20% -10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+.shop-row {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: shop-slide 70s linear infinite;
+}
+.shop-row-rev {
+  animation-direction: reverse;
+  animation-duration: 85s;
+}
+.shop-tile {
+  flex: none;
+  width: clamp(150px, 19vw, 280px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #fff;
+}
+.shop-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes shop-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-row {
+    animation: none;
+  }
+}

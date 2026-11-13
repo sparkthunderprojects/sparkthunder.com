@@ -110,17 +110,22 @@ export default function ShopPage() {
 
       {/* HERO */}
       <section className="grain relative isolate flex min-h-[82svh] items-center justify-center overflow-hidden bg-[#03060f]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/intro/storm-strike.jpg"
-          alt=""
-          aria-hidden="true"
-          className="drift absolute inset-0 h-full w-full object-cover opacity-50"
-        />
+        <div aria-hidden="true" className="shop-rows opacity-60">
+          {[false, true].map((rev) => (
+            <div key={String(rev)} className={`shop-row ${rev ? "shop-row-rev" : ""}`}>
+              {[...(rev ? [...MERCH].reverse() : MERCH), ...(rev ? [...MERCH].reverse() : MERCH)].map((m, i) => (
+                <div key={i} className="shop-tile">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.src} alt="" width={900} height={900} loading="eager" />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(60% 70% at 50% 45%, rgba(125,211,252,0.18), transparent 65%)" }}
+          className="absolute inset-0 z-[1]"
+          style={{ backgroundImage: "radial-gradient(55% 60% at 50% 50%, rgba(3,6,15,0.92), rgba(3,6,15,0.55) 70%, rgba(3,6,15,0.25))" }}
         />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 z-[1] h-40 bg-gradient-to-b from-black/80 to-transparent" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-[1] h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
