@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Bolt } from "./Bolt";
-import { BRANDS, SITE } from "@/lib/brands";
+import HeaderBrand from "./HeaderBrand";
+import { BRANDS } from "@/lib/brands";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -11,10 +11,7 @@ export function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-6 md:px-12">
-        <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
-          <Bolt className="h-7 w-auto text-spark" />
-          <span className="text-sm font-medium uppercase tracking-[0.38em]">{SITE.name}</span>
-        </Link>
+        <HeaderBrand />
 
         <nav aria-label="Primary" className="hidden items-center gap-9 lg:flex">
           {NAV.map((n) => (
