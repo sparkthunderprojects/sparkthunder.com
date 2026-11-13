@@ -98,6 +98,7 @@ export const BRANDS: Brand[] = [
     art: "radial-gradient(110% 90% at 75% 15%, #6d28d9 0%, transparent 55%), radial-gradient(90% 80% at 10% 90%, #1e1b4b 0%, transparent 60%), linear-gradient(160deg,#0b0618,#07050f)",
     accent: "#a78bfa",
     logo: { src: "/brands/logos/occult-inc.png", width: 1194, height: 437 },
+    banner: "/brands/banners/occult-inc.jpg",
     tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(139,92,246,0.35), transparent 65%), linear-gradient(160deg,#120a24,#07050f)",
     tone: "dark",
     highlights: [
