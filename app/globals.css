@@ -450,3 +450,82 @@ body {
     display: none;
   }
 }
+
+/* ---------- Brands hero mosaic ---------- */
+.bh-cell {
+  background: rgba(255, 255, 255, var(--a, 0.03));
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.035);
+}
+.bh-lit {
+  position: relative;
+}
+.bh-lit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--tint);
+  opacity: 0;
+  animation: bh-lit var(--dur, 7s) ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes bh-lit {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  55% {
+    opacity: 0.42;
+  }
+}
+.bh-sweep {
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.07) 50%, transparent 65%);
+  transform: translateX(-60%);
+  animation: bh-sweep 11s ease-in-out 1.5s infinite;
+}
+@keyframes bh-sweep {
+  0% {
+    transform: translateX(-60%);
+  }
+  60%,
+  100% {
+    transform: translateX(60%);
+  }
+}
+.bh-ghost {
+  filter: brightness(0) invert(1);
+  opacity: 0.12;
+  animation: bh-breathe 9s ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes bh-breathe {
+  0%,
+  100% {
+    opacity: 0.09;
+  }
+  50% {
+    opacity: 0.24;
+  }
+}
+.bh-logo {
+  aspect-ratio: 6 / 1;
+  background: linear-gradient(100deg, #7f8bb0 0%, #f4f7ff 24%, #a9b4d2 42%, #ffffff 58%, #7f8bb0 100%);
+  background-size: 260% 100%;
+  -webkit-mask: url(/sparkthunder-logo.png) center / contain no-repeat;
+  mask: url(/sparkthunder-logo.png) center / contain no-repeat;
+  animation: logo-shine 9s ease-in-out 1.5s infinite;
+}
+.bh-logo-wrap {
+  filter: drop-shadow(0 0 32px rgba(125, 211, 252, 0.35));
+  animation: sky-materialise 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bh-lit::after,
+  .bh-sweep,
+  .bh-ghost,
+  .bh-logo,
+  .bh-logo-wrap {
+    animation: none !important;
+  }
+  .bh-sweep {
+    display: none;
+  }
+}
