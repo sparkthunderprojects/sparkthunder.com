@@ -12,7 +12,15 @@ export type Brand = {
   /** Tailwind-free CSS gradient used as the cinematic key art until real art is dropped in. */
   art: string;
   accent: string;
-  highlights: { title: string; text: string }[];
+  highlights?: { title: string; text: string }[];
+  /** Brand logo shown on the tile and the brand page. Brands without one show their name in type. */
+  logo?: { src: string; width: number; height: number };
+  /** Background of the brand tile on the brands page. */
+  tileBg: string;
+  /** "light" tiles use dark text and a dark logo, "dark" tiles the opposite. */
+  tone: "dark" | "light";
+  /** Set when the logo file has its own opaque light background that should blend into the tile. */
+  logoBlend?: boolean;
 };
 
 export const SITE = {
@@ -39,6 +47,9 @@ export const BRANDS: Brand[] = [
     href: "https://knightverge.com",
     art: "radial-gradient(120% 90% at 20% 10%, #1d4ed8 0%, transparent 55%), radial-gradient(90% 80% at 85% 90%, #7c3aed 0%, transparent 60%), linear-gradient(160deg,#050816,#0b1030)",
     accent: "#60a5fa",
+    logo: { src: "/brands/logos/knightverge.png", width: 1000, height: 224 },
+    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(212,160,23,0.28), transparent 65%), linear-gradient(160deg,#0a0d1f,#05060f)",
+    tone: "dark",
     highlights: [
       { title: "Characters", text: "Deep profiles with powers, gear, history and relationships." },
       { title: "Timeline", text: "A universe-wide timeline you can filter and follow." },
@@ -59,6 +70,8 @@ export const BRANDS: Brand[] = [
     status: "In development",
     art: "radial-gradient(110% 90% at 80% 10%, #b45309 0%, transparent 55%), radial-gradient(90% 80% at 10% 95%, #be123c 0%, transparent 60%), linear-gradient(160deg,#120805,#1f0d0a)",
     accent: "#fbbf24",
+    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(251,191,36,0.3), transparent 65%), linear-gradient(160deg,#1f0d0a,#120805)",
+    tone: "dark",
     highlights: [
       { title: "Knightverge Legacy", text: "A long-form tabletop RPG set in the Knightverge universe." },
       { title: "Personas", text: "Choose an Origin and an Archetype and shape your own legend." },
@@ -79,6 +92,8 @@ export const BRANDS: Brand[] = [
     status: "In development",
     art: "radial-gradient(110% 90% at 15% 15%, #0891b2 0%, transparent 55%), radial-gradient(90% 80% at 90% 90%, #4f46e5 0%, transparent 60%), linear-gradient(160deg,#04111a,#08182b)",
     accent: "#22d3ee",
+    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(34,211,238,0.28), transparent 65%), linear-gradient(160deg,#08182b,#04111a)",
+    tone: "dark",
     highlights: [
       { title: "Battle maps", text: "Layered maps, fog of war, vision and measurement tools." },
       { title: "Dice & chat", text: "Realtime chat with slash-command rolls and 3D physics dice." },
@@ -97,12 +112,67 @@ export const BRANDS: Brand[] = [
       "It is in development. More will be revealed here as it takes shape.",
     ],
     status: "In development",
-    art: "radial-gradient(110% 90% at 75% 15%, #047857 0%, transparent 55%), radial-gradient(90% 80% at 10% 90%, #1e1b4b 0%, transparent 60%), linear-gradient(160deg,#03100c,#07130f)",
-    accent: "#34d399",
+    art: "radial-gradient(110% 90% at 75% 15%, #6d28d9 0%, transparent 55%), radial-gradient(90% 80% at 10% 90%, #1e1b4b 0%, transparent 60%), linear-gradient(160deg,#0b0618,#07050f)",
+    accent: "#a78bfa",
+    logo: { src: "/brands/logos/occult-inc.png", width: 1194, height: 437 },
+    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(139,92,246,0.35), transparent 65%), linear-gradient(160deg,#120a24,#07050f)",
+    tone: "dark",
     highlights: [
       { title: "A new world", text: "Its own rules, characters and secrets — separate from Knightverge." },
       { title: "In development", text: "Follow Sparkthunder for the first reveal." },
     ],
+  },
+  {
+    slug: "shadeveil",
+    name: "Shadeveil",
+    category: "Sparkthunder Brand",
+    tagline: "Step behind the veil.",
+    summary: "A Sparkthunder brand with a gothic edge. More will be revealed here soon.",
+    description: [
+      "Shadeveil is a Sparkthunder brand currently in development.",
+      "Details are being kept behind the veil for now. Check back for the first reveal.",
+    ],
+    status: "In development",
+    art: "radial-gradient(110% 90% at 80% 10%, #ddd6f3 0%, transparent 60%), linear-gradient(160deg,#f3effb,#b9afd4)",
+    accent: "#7c3aed",
+    logo: { src: "/brands/logos/shadeveil.png", width: 1000, height: 364 },
+    tileBg: "radial-gradient(90% 90% at 50% 0%, #ffffff, transparent 70%), linear-gradient(160deg,#ebe6f6,#b9afd4)",
+    tone: "light",
+  },
+  {
+    slug: "ludicrous-laughs",
+    name: "Ludicrous Laughs",
+    category: "Sparkthunder Brand",
+    tagline: "Cartoon chaos!",
+    summary: "The loud, bright, cartoon side of Sparkthunder. More coming soon.",
+    description: [
+      "Ludicrous Laughs is a Sparkthunder brand currently in development.",
+      "Expect cartoon chaos. Details will be announced here.",
+    ],
+    status: "In development",
+    art: "linear-gradient(160deg,#fffaf0,#fde9c8)",
+    accent: "#ef4444",
+    logo: { src: "/brands/logos/ludicrous-laughs.jpg", width: 1200, height: 655 },
+    tileBg: "#fefaee",
+    tone: "light",
+    logoBlend: true,
+  },
+  {
+    slug: "grim-gala",
+    name: "Grim Gala",
+    category: "Horror Label",
+    tagline: "The horror label.",
+    summary: "Grim Gala is Sparkthunder's horror label. More coming soon.",
+    description: [
+      "Grim Gala is a horror label, separate in tone from the rest of the Sparkthunder family.",
+      "Details will be announced here.",
+    ],
+    status: "In development",
+    art: "radial-gradient(110% 90% at 50% 10%, #9f1239 0%, transparent 60%), linear-gradient(160deg,#14060a,#07030a)",
+    accent: "#e11d48",
+    logo: { src: "/brands/logos/grim-gala.png", width: 900, height: 682 },
+    tileBg: "radial-gradient(90% 90% at 50% 0%, rgba(225,29,72,0.28), transparent 65%), linear-gradient(160deg,#16070c,#07030a)",
+    tone: "dark",
   },
 ];
 

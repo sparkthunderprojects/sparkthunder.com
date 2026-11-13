@@ -1,10 +1,9 @@
 import Link from "next/link";
 import HeaderBrand from "./HeaderBrand";
-import { BRANDS } from "@/lib/brands";
 
 const NAV = [
+  { href: "/brands", label: "Brands" },
   { href: "/about", label: "About" },
-  ...BRANDS.map((b) => ({ href: `/brands/${b.slug}`, label: b.name })),
 ];
 
 export function Header() {

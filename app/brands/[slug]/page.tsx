@@ -26,21 +26,38 @@ export default function BrandPage({ params }: Props) {
   const brand = getBrand(slug);
   if (!brand) notFound();
 
-  const others = BRANDS.filter((b) => b.slug !== brand.slug);
+  const others = BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 3);
+  const light = brand.tone === "light";
+  const ink = light ? "text-black" : "";
+  const inkSoft = light ? "text-black/70" : "text-white/75";
 
   return (
     <>
       <section className="grain relative flex min-h-[80svh] items-end overflow-hidden">
         <div className="drift absolute inset-0" style={{ backgroundImage: brand.art }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/20 to-black/40" />
+        <div className={`absolute inset-0 bg-gradient-to-t from-background ${light ? "via-transparent to-transparent" : "via-black/20 to-black/40"}`} />
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black/70 to-transparent" />
         <div className="relative mx-auto w-full max-w-[1500px] px-6 pb-20 md:px-12 md:pb-28">
-          <p className="eyebrow rise">{brand.category}</p>
-          <h1 className="display rise rise-2 mt-6 text-[clamp(3.5rem,11vw,10rem)]">{brand.name}</h1>
-          <p className="rise rise-3 mt-6 max-w-xl text-xl text-white/75">{brand.tagline}</p>
+          <p className={`eyebrow rise ${light ? "!text-black/60" : ""}`}>{brand.category}</p>
+          <h1 className={`display rise rise-2 mt-6 ${ink} ${brand.logo ? "" : "text-[clamp(3.5rem,11vw,10rem)]"}`}>
+            {brand.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={brand.logo.src}
+                alt={brand.name}
+                width={brand.logo.width}
+                height={brand.logo.height}
+                className={`h-auto w-[min(86vw,640px)] ${brand.logoBlend ? "[mask-image:radial-gradient(ellipse_at_center,#000_58%,transparent_78%)]" : ""}`}
+              />
+            ) : (
+              brand.name
+            )}
+          </h1>
+          <p className={`rise rise-3 mt-6 max-w-xl text-xl ${inkSoft}`}>{brand.tagline}</p>
           <div className="rise rise-3 mt-8 flex flex-wrap items-center gap-5">
             <span
               className="border px-3 py-2 text-[0.68rem] uppercase tracking-[0.24em]"
-              style={{ borderColor: brand.accent, color: brand.accent }}
+              style={{ borderColor: brand.accent, color: brand.accent, background: light ? "rgba(255,255,255,0.6)" : undefined }}
             >
               {brand.status}
             </span>
@@ -68,11 +85,12 @@ export default function BrandPage({ params }: Props) {
         </div>
       </section>
 
+      {brand.highlights && brand.highlights.length > 0 && (
       <section className="border-t border-line">
         <div
-          className={`mx-auto grid max-w-[1500px] ${brand.highlights.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}
+          className={`mx-auto grid max-w-[1500px] ${brand.highlights!.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}
         >
-          {brand.highlights.map((h, i) => (
+          {brand.highlights!.map((h, i) => (
             <div
               key={h.title}
               className={`px-6 py-16 md:px-12 md:py-20 ${i > 0 ? "border-t border-line md:border-l md:border-t-0" : ""}`}
@@ -85,6 +103,7 @@ export default function BrandPage({ params }: Props) {
           ))}
         </div>
       </section>
+      )}
 
       <section className="border-t border-line px-6 py-20 md:px-12">
         <div className="mx-auto max-w-[1500px]">

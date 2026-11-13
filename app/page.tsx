@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Bolt } from "@/components/Bolt";
 import IntroSky from "@/components/IntroSky";
-import { BrandCard } from "@/components/BrandCard";
+import { BrandGrid } from "@/components/BrandGrid";
 import { BRANDS } from "@/lib/brands";
 
 export default function Home() {
@@ -17,21 +17,22 @@ export default function Home() {
         </p>
       </section>
 
-      {/* BRANDS RAIL */}
+      {/* BRANDS */}
       <section id="universes" className="scroll-mt-8 border-t border-line py-24 md:py-32">
         <div className="mx-auto flex max-w-[1500px] items-end justify-between px-6 md:px-12">
           <div>
             <p className="eyebrow">The portfolio</p>
-            <h2 className="display mt-5 text-5xl md:text-7xl">Our universes</h2>
+            <h2 className="display mt-5 text-5xl md:text-7xl">Our brands</h2>
           </div>
-          <p className="hidden max-w-xs text-sm text-muted md:block">
-            Scroll sideways to meet every Sparkthunder brand.
-          </p>
+          <Link href="/brands" className="link-arrow hidden text-xs uppercase tracking-[0.26em] md:block">
+            All brands
+          </Link>
         </div>
-        <div className="mt-14 flex snap-x gap-5 overflow-x-auto px-6 pb-6 md:px-12">
-          {BRANDS.map((b, i) => (
-            <BrandCard key={b.slug} brand={b} index={i} />
-          ))}
+        <div className="mx-auto mt-14 max-w-[1500px] px-6 md:px-12">
+          <BrandGrid brands={BRANDS} />
+          <Link href="/brands" className="link-arrow mt-12 inline-block text-xs uppercase tracking-[0.26em] md:hidden">
+            All brands
+          </Link>
         </div>
       </section>
 
