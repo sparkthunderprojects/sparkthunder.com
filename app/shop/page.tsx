@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ShopLogo } from "@/components/ShopLogo";
 import { BrandGrid } from "@/components/BrandGrid";
 import { BRANDS, SITE } from "@/lib/brands";
 
@@ -132,7 +133,9 @@ export default function ShopPage() {
 
         <div className="relative z-[2] mx-auto flex w-full max-w-[1500px] flex-col items-center px-6 pb-10 pt-28 text-center md:px-12">
           <p className="eyebrow rise">Official merchandise</p>
-          <h1 className="display rise rise-2 mt-8 text-[clamp(3.5rem,11vw,10rem)]">The Shop</h1>
+          <h1 aria-label="The Sparkthunder Shop" className="rise rise-2 mt-8 w-full">
+            <ShopLogo />
+          </h1>
           <p className="rise rise-3 mt-5 max-w-xl text-xl text-white/75">
             Every universe. One official store.
           </p>
