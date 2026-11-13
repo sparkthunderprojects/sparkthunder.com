@@ -33,7 +33,7 @@ export function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-[1500px] items-center justify-between px-6 transition-all duration-300 md:px-12 ${
+        className={`flex w-full items-center justify-between px-5 transition-all duration-300 md:px-8 ${
           scrolled ? "py-3.5" : "py-6"
         }`}
       >

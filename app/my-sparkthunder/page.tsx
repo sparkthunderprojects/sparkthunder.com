@@ -86,7 +86,7 @@ export default function MySparkthunderPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}
-      <section className="grain relative isolate flex min-h-[74svh] items-end overflow-hidden bg-[#03060f]">
+      <section className="grain relative isolate flex min-h-[82svh] items-center justify-center overflow-hidden bg-[#03060f]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/intro/night-sky.jpg"
@@ -97,19 +97,18 @@ export default function MySparkthunderPage() {
         <div
           aria-hidden="true"
           className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(60% 70% at 78% 20%, rgba(125,211,252,0.22), transparent 65%)" }}
+          style={{ backgroundImage: "radial-gradient(60% 70% at 50% 45%, rgba(125,211,252,0.22), transparent 65%)" }}
         />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 z-[1] h-40 bg-gradient-to-b from-black/80 to-transparent" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-[1] h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
-        <Bolt className="flicker pointer-events-none absolute right-[10%] top-[18%] hidden h-[38vh] w-auto text-spark/20 md:block" />
 
-        <div className="relative z-[2] mx-auto w-full max-w-[1500px] px-6 pb-16 md:px-12 md:pb-24">
+        <div className="relative z-[2] mx-auto flex w-full max-w-[1500px] flex-col items-center px-6 pb-10 pt-28 text-center md:px-12">
           <p className="eyebrow rise">Your account</p>
-          <h1 aria-label="MySparkthunder" className="rise rise-2 mt-8 pt-4">
+          <h1 aria-label="MySparkthunder" className="rise rise-2 mt-8 flex justify-center pt-4">
             <MyLogo />
           </h1>
           <p className="rise rise-3 mt-5 max-w-xl text-xl text-white/75">Your worlds. One identity.</p>
-          <div className="rise rise-3 mt-9 flex flex-wrap gap-4">
+          <div className="rise rise-3 mt-9 flex flex-wrap justify-center gap-4">
             <a
               href={`${ACCOUNT_URL}/signup`}
               className="border border-white bg-white px-7 py-3.5 text-xs font-medium uppercase tracking-[0.26em] text-black transition hover:bg-transparent hover:text-white"
