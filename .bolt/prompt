@@ -3,9 +3,9 @@ For all designs I ask you to make, have them be beautiful, not cookie cutter. Ma
 When using client-side hooks (useState and useEffect) in a component that's being treated as a Server Component by Next.js, always add the "use client" directive at the top of the file.
 
 DATABASE RULES — this project's Supabase database is SHARED with another site (waheedrehman.com). These rules are mandatory:
-- Never create, alter, drop, rename, truncate, seed, read or write these existing objects, or change their policies: tables content_items, media_assets, site_settings, wr_admins, and the storage bucket "media". They belong to waheedrehman.com.
+- Never create, alter, drop, rename, truncate, seed, read or write these existing objects, or change their policies: tables content_items, media_assets, site_settings, wr_admins, the function wr_is_admin, and the storage bucket "media". They belong to waheedrehman.com.
 - Every table, view, function, trigger, policy and storage bucket you create for sparkthunder.com MUST be prefixed "st_" (for example st_articles, st_media_assets, bucket st_media).
 - Never write a migration that resets or recreates the schema, and never use DROP, TRUNCATE or mass DELETE on anything that is not prefixed "st_".
-- Admin access for sparkthunder.com must be checked against its own st_admins table. Never grant write access to "any authenticated user", because users of the other site share the same login system.
+- Admin access for sparkthunder.com is already set up: the table st_admins and the function st_is_admin() exist (do not recreate or change them). Every INSERT, UPDATE and DELETE policy on an st_ table must use st_is_admin() (USING / WITH CHECK st_is_admin()). Never grant write access to "any authenticated user", because users of the other site share the same login system. Public read policies are fine only for content meant to be public.
 - Do not turn on public sign-up for this project.
 - If a requested feature would need to change a non-"st_" object, stop and ask me first.
